@@ -102,6 +102,38 @@
   </ol>
 </div></section>
 
+<section id="listen" style="--c:var(--c4)"><div class="in">
+  <div class="mark"><span class="orb"></span><span class="eyebrow">Голос Юлии</span></div>
+  <h2 class="center">Фрагмент мантры</h2>
+  <div class="listen">
+    <button class="lplay" id="lplay" aria-label="Слушать мантру Анахаты"><span id="lico">▶</span></button>
+    <div class="lbody">
+      <div class="ltitle">Мантра Анахаты · ЯМ</div>
+      <div class="lbar" id="lbar"><i id="lfill"></i></div>
+      <div class="ltime"><span id="lcur">0:00</span><span>0:37</span></div>
+    </div>
+    <audio id="laudio" src="mantra-anahata.mp3" preload="none"></audio>
+  </div>
+</div></section>
+<style>
+.listen{margin:40px auto 0;max-width:620px;border:1px solid var(--line);border-radius:28px;padding:24px 26px;background:var(--card);display:grid;grid-template-columns:auto minmax(0,1fr);gap:22px;align-items:center;box-shadow:0 1px 0 rgba(255,255,255,.8) inset,0 18px 40px -30px rgba(90,60,30,.35)}
+.lplay{width:68px;height:68px;border-radius:50%;border:0;padding:2px;cursor:pointer;background:conic-gradient(var(--c1),var(--c2),var(--c3),var(--c4),var(--c5),var(--c6),var(--c7),var(--c1))}
+.lplay span{width:100%;height:100%;border-radius:50%;background:#fff;display:grid;place-items:center;color:var(--gold);font-size:22px}
+.lplay:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+.ltitle{font:400 24px/1.2 var(--display);margin-bottom:12px}
+.lbar{height:6px;border-radius:999px;background:rgba(70,52,34,.1);overflow:hidden;cursor:pointer}
+.lbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold1),var(--gold2));border-radius:999px}
+.ltime{display:flex;justify-content:space-between;color:var(--muted);font-size:13px;margin-top:8px;font-variant-numeric:tabular-nums}
+</style>
+<script>
+(function(){var a=document.getElementById('laudio'),b=document.getElementById('lplay'),ic=document.getElementById('lico'),f=document.getElementById('lfill'),c=document.getElementById('lcur'),bar=document.getElementById('lbar');
+function t(s){s=Math.floor(s||0);return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')}
+b.onclick=function(){if(a.paused){a.play()}else{a.pause()}};
+a.onplay=function(){ic.textContent='❚❚'};a.onpause=a.onended=function(){ic.textContent='▶'};
+a.ontimeupdate=function(){f.style.width=(a.currentTime/(a.duration||37)*100)+'%';c.textContent=t(a.currentTime)};
+bar.onclick=function(e){var r=bar.getBoundingClientRect();if(a.duration){a.currentTime=(e.clientX-r.left)/r.width*a.duration}};})();
+</script>
+  
 <section id="modules" style="--c:var(--c6)"><div class="in narrow">
   <div class="mark center"><span class="orb"></span><span class="eyebrow">Программа</span></div>
   <h2 class="center">Земля и небо внутри тебя</h2>
